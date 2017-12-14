@@ -1,0 +1,28 @@
+# mount_point   fstype    device                                             flags
+/aboot  emmc    /dev/block/bootdevice/by-name/aboot             flags=display="Aboot";backup=1
+/boot           emmc    /dev/block/bootdevice/by-name/boot              flags=display="Boot";backup=1;flashimg=1
+/recovery       emmc    /dev/block/bootdevice/by-name/recovery  flags=display="Recovery";backup=1;flashimg=1
+/splash emmc        /dev/block/bootdevice/by-name/splash        flags=display="Splash";backup=1
+/modem  emmc    /dev/block/bootdevice/by-name/modem             flags=display="Modem";backup=1;flashimg=1
+/system ext4            /dev/block/bootdevice/by-name/system            flags=backup=1;wipeingui;flashimg=1
+/data           ext4            /dev/block/bootdevice/by-name/userdata  flags=encryptable=footer;length=-16384
+/cache  ext4            /dev/block/bootdevice/by-name/cache             flags=backup=1;wipeingui;wipeduringfactoryreset
+/mrd            emmc    /dev/block/bootdevice/by-name/mrd               flags=display="Mrd";backup=1
+
+/persist        ext4            /dev/block/bootdevice/by-name/persist           flags=display="Persist";wipeingui;backup=1
+/misc           emmc       /dev/block/bootdevice/by-name/misc
+/ddr          emmc       /dev/block/bootdevice/by-name/DDR             flags=display="DDR";backup=1;flashimg=1
+
+/fsg            emmc    /dev/block/bootdevice/by-name/fsg               flags=display="Efs";wipeingui;backup=1;flashimg=1
+/modemst1       emmc    /dev/block/bootdevice/by-name/modemst1  flags=subpartitionof=/fsg;wipeingui;backup=1
+/modemst2       emmc    /dev/block/bootdevice/by-name/modemst2  flags=subpartitionof=/fsg;wipeingui;backup=1
+/modemst3       emmc    /dev/block/bootdevice/by-name/modemst3  flags=subpartitionof=/fsg;wipeingui;backup=1
+
+/sbl1           emmc    /dev/block/bootdevice/by-name/sbl1              flags=display="Firmware";backup=1;flashimg=1
+/tz             emmc    /dev/block/bootdevice/by-name/tz                        flags=subpartitionof=/sbl1;backup=1
+/rpm            emmc    /dev/block/bootdevice/by-name/rpm               flags=subpartitionof=/sbl1;backup=1
+/hyp            emmc    /dev/block/bootdevice/by-name/hyp               flags=subpartitionof=/sbl1;backup=1
+
+/external_sd  auto      /dev/block/mmcblk1p1 /dev/block/mmcblk1    flags=display="MicroSD Card";storage;wipeingui;removable;fsflags="utf8"
+/usb_otg       auto      /dev/block/sda1 /dev/block/sda                 flags=display="Usb Otg";storage;wipeingui;removable;fsflags="utf8"
+
